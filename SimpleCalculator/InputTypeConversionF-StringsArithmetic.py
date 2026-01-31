@@ -1,4 +1,7 @@
 # Ask the user to enter their name
+from typing import Literal
+
+
 user = input("Enter your name ")
 
 # Print a welcome message using f-string
@@ -67,26 +70,51 @@ print(f"Exponentiation: {a ** b}")
 # ===============================
 
 # Ask the user for two numbers
-num5 = float(input("Enter first input "))
-num6 = float(input("Enter second input "))
+num5 = float(input("Enter first input: "))
+num6 = float(input("Enter second input: "))
+choix = input("Enter your operation (+, -, *, /, //): ")
 
-# Perform calculations
-plus = num5 + num6
-subtraction = num5 - num6
-multiplication = num5 * num6
-division = num5 / num6
-floor_division = num5 // num6
+if choix == "+":
+    result = num5 + num6
+
+elif choix == "-":
+    result = num5 - num6
+
+elif choix == "*":
+    result = num5 * num6
+
+elif choix == "/":
+    if num6 != 0:
+        result = num5 / num6
+    else:
+        print("Cannot divide by zero")
+        exit()
+
+elif choix == "//":
+    if num6 != 0:
+        result = num5 // num6
+    else:
+        print("Cannot divide by zero")
+        exit()
+
+else:
+    print("Invalid operation")
+    exit()
+
+print(f"{num5} {choix} {num6} = {result}")
+
 
 # Avoid division by zero
-modules = num5 % num6 if num6 != 0 else "Cannot divide by zero"
+# modules: float | Literal['Cannot divide by zero'] = num5 % num6 if num6 != 0 else "Cannot divide by zero"
 
-exponentiation = num5**num6
 
-# Print all results
-print(f"Addition: {plus}")
-print(f"Subtraction: {subtraction}")
-print(f"Division: {division}")
-print(f"Floor Division: {floor_division}")
-print(f"Multiplication: {multiplication}")
-print(f"Modulus: {modules}")
-print(f"Exponentiation: {exponentiation}")
+# exponentiation = num5**num6
+
+# # Print all results
+# print(f"Addition: {plus}")
+# print(f"Subtraction: {subtraction}")
+# print(f"Division: {division}")
+# print(f"Floor Division: {floor_division}")
+# print(f"Multiplication: {multiplication}")
+# print(f"Modulus: {modules}")
+# print(f"Exponentiation: {exponentiation}")
