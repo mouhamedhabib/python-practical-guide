@@ -1,0 +1,19 @@
+FUNCTION find_min(numbers):
+    SET min_val TO numbers[0]
+    FOR EACH num IN numbers:
+        IF num < min_val THEN
+            SET min_val TO num
+        END IF
+    END FOR
+    RETURN min_val
+END FUNCTION
+
+FUNCTION find_max(numbers):
+    SET max_val TO numbers[0]
+    FOR EACH num IN numbers:
+        IF num > max_val THEN
+            SET max_val TO num
+        END IF
+    END FOR
+    RETURN max_val
+END FUNCTION
